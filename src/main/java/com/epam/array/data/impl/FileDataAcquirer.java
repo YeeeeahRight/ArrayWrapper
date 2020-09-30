@@ -45,7 +45,7 @@ public class FileDataAcquirer implements DataAcquirer {
         String inputStr;
         while ((inputStr = fileReader.readLine()) != null) {
             System.out.println(inputStr);
-            Integer.parseInt(inputStr);
+            arrayList.add(Integer.parseInt(inputStr));
         }
     }
 }
