@@ -104,7 +104,9 @@ public class WrapperArray {
                     stringBuilder.append(' ');
                 }
             }
-            stringBuilder.append("], size = ").append(this.size).append('}');
+            stringBuilder.append("], size = ");
+            stringBuilder.append(this.size);
+            stringBuilder.append('}');
             return stringBuilder.toString();
         }
     }

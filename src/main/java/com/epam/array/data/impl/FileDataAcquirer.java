@@ -44,8 +44,8 @@ public class FileDataAcquirer implements DataAcquirer {
     private void inputListFile(ArrayList<Integer> arrayList, BufferedReader fileReader) throws IOException {
         String inputStr;
         while ((inputStr = fileReader.readLine()) != null) {
-            System.out.println(inputStr);
-            arrayList.add(Integer.parseInt(inputStr));
+            int number = Integer.parseInt(inputStr);
+            arrayList.add(number);
         }
     }
 }

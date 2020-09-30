@@ -37,8 +37,8 @@ public class WrapperArraysHelper implements ArraysHelper {
     @Override
     public int findMinElement(WrapperArray array) throws OutOfBoundsException {
         int size = array.getSize();
-        int minElement = array.get(size - 1);
-        for (int i = size - 2; i > 0; i--) {
+        int minElement = array.get(0);
+        for (int i = 1; i < size; i++) {
             if (array.get(i) < minElement) {
                 minElement = array.get(i);
             }

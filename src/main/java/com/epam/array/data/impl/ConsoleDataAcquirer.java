@@ -52,7 +52,8 @@ public class ConsoleDataAcquirer implements DataAcquirer {
             if (STOP_WORD.equals(strInput)) {
                 isStop = true;
             } else {
-                arrayList.add(Integer.parseInt(strInput));
+                int number = Integer.parseInt(strInput);
+                arrayList.add(number);
             }
         }
     }
