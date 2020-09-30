@@ -21,12 +21,8 @@ public class WrapperArray {
         if (capacity < 0) {
             throw new IncorrectCapacityException(INCORRECT_CAPACITY_MESSAGE);
         }
-        if (capacity > 0) {
-            this.array = new int[capacity];
-            this.size = capacity;
-        } else {
-            this.array = new int[0];
-        }
+        this.array = new int[capacity];
+        this.size = capacity;
     }
 
     public WrapperArray(int[] array) throws NullArrayException {
