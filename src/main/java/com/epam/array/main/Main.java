@@ -1,37 +1,36 @@
 package com.epam.array.main;
 
-import com.epam.array.data.DataAcquirer;
-import com.epam.array.data.DataAcquirerFactory;
-import com.epam.array.enums.InputWayEnum;
+import com.epam.array.data.acquirer.DataAcquirer;
+import com.epam.array.data.factory.DataAcquirerFactory;
+import com.epam.array.data.factory.impl.FileDataAcquirerFactory;
 import com.epam.array.exceptions.arrays.NullArrayException;
 import com.epam.array.exceptions.arrays.OutOfBoundsException;
 import com.epam.array.exceptions.data.DataTypeException;
 import com.epam.array.exceptions.data.InputStreamException;
-import com.epam.array.exceptions.data.UnknownInputWayException;
 import com.epam.array.util.WrapperArray;
-import com.epam.array.util.WrapperArraysHelper;
+import com.epam.array.logic.WrapperArraysHelper;
 import com.epam.array.view.ConsoleResultPrinter;
 import com.epam.array.view.ResultPrinter;
 
 public class Main {
-    public static void main(String[] args) throws UnknownInputWayException, DataTypeException,
+    public static void main(String[] args) throws DataTypeException,
             InputStreamException, NullArrayException, OutOfBoundsException {
-        DataAcquirerFactory dataCreator = new DataAcquirerFactory();
-        InputWayEnum inputWay = InputWayEnum.CONSOLE;
-        DataAcquirer dataAcquirer = dataCreator.createDataAcquirer(inputWay);
-        int[] array = dataAcquirer.getArray();
-        WrapperArray wrapperArray = new WrapperArray(array);
+        DataAcquirerFactory dataCreator = new FileDataAcquirerFactory();
+        DataAcquirer dataAcquirer = dataCreator.createDataAcquirer();
+        WrapperArray wrapperArray = dataAcquirer.getWrapperArray();
         WrapperArraysHelper arraysHelper = new WrapperArraysHelper();
-        //view
         ResultPrinter resultPrinter = new ConsoleResultPrinter();
+        //calculate
         int maxElement = arraysHelper.findMaxElement(wrapperArray);
         int minElement = arraysHelper.findMinElement(wrapperArray);
+        //view calculations
         resultPrinter.printMaxElement(maxElement);
         resultPrinter.printMinElement(minElement);
-        //before sort
+        //print array before sort
         resultPrinter.printArray(wrapperArray);
+        //sort array
         arraysHelper.sortArray(wrapperArray);
-        //after sort
+        //print array after sort
         resultPrinter.printArray(wrapperArray);
     }
 }

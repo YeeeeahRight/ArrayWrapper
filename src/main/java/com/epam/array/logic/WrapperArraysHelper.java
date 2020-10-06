@@ -1,6 +1,7 @@
-package com.epam.array.util;
+package com.epam.array.logic;
 
 import com.epam.array.exceptions.arrays.OutOfBoundsException;
+import com.epam.array.util.WrapperArray;
 
 public class WrapperArraysHelper implements ArraysHelper {
 

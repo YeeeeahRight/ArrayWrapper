@@ -33,6 +33,7 @@ public class WrapperArray {
         this.size = array.length;
     }
 
+
     public int get(int index) throws OutOfBoundsException {
         this.checkIndex(index);
         return array[index];
